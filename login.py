@@ -28,31 +28,30 @@ try:
     driver.get("https://meroshare.cdsc.com.np/#/login")
     wait = WebDriverWait(driver, 10)
 
-    #DP dropdown
+    #dropdown for bank
     dp_dropdown_xpath = "/html/body/app-login/div/div/div/div/div/div/div[1]/div/form/div/div[1]/div/div/select2/span/span[1]/span/span[1]"
     dp_dropdown = wait.until(EC.element_to_be_clickable((By.XPATH, dp_dropdown_xpath)))
     dp_dropdown.click()
-
-    #Bank option
+    #options
     option_xpath = f"//li[contains(text(), '{bank}')]"
     bank_option = wait.until(EC.element_to_be_clickable((By.XPATH, option_xpath)))
     bank_option.click()
-
-    #Fill username
+    #fill username
     username_xpath = "/html/body/app-login/div/div/div/div/div/div/div[1]/div/form/div/div[2]/div/div/input"
     username_input = wait.until(EC.presence_of_element_located((By.XPATH, username_xpath)))
     username_input.send_keys(username)
-
-    #Fill password
+    #password
     password_xpath = "/html/body/app-login/div/div/div/div/div/div/div[1]/div/form/div/div[3]/div/div/input"
     password_input = wait.until(EC.presence_of_element_located((By.XPATH, password_xpath)))
     password_input.send_keys(password)
     random_delay()
 
-    #Click login
+    #login
     login_button_xpath = "/html/body/app-login/div/div/div/div/div/div/div[1]/div/form/div/div[4]/div/button"
     login_button = wait.until(EC.element_to_be_clickable((By.XPATH, login_button_xpath)))
     login_button.click()
+    
+    
     #dashboard nav link
     dashboard_nav_xpath = "/html/body/app-dashboard/div/div[1]/nav/ul/li[8]/a"
     dashboard_nav_link = wait.until(EC.element_to_be_clickable((By.XPATH, dashboard_nav_xpath)))
